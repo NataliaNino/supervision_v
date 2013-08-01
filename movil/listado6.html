@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="cleartype" content="on">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+	<title>Supervisi&oacute;n Red de Fibra &Oacute;ptica</title>
+
+	<!--Include JQM and JQ-->
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" id="linkestilo"/>
+	<link rel="stylesheet" href="css/estilo_boton.css"/>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script>		
+</head>
+    <body onload="init();">
+        <div class="container">
+			<header>
+				<div id = "n_supervisor" align="right"></div>
+				<div id = "n_constructor" align="center"></div>
+				<div id = "n_tramo" align="center"></div>
+			</header>
+			<section id="t_avance">
+			<div class="result-block">	<span id="cur_position"></span>	</div>
+			<br>
+				<div id="avance0" class="div_avance"> 
+					<legend> Se realiz&oacute; la instalaci&oacute;n de fibra &oacute;ptica de:</legend>
+					<input id="hilos0" type="number" min=0 onkeypress="if (event.keyCode< 48 || event.keyCode > 57) event.returnValue = false;" required />
+					<label># Hilos</label><br>
+					<input id="span0" type="number" min=0 onkeypress="if (event.keyCode< 48 || event.keyCode > 57) event.returnValue = false;" required/>
+					<label>Span</label><br>
+					<input id="abs_ini0" type="number" min=0 onkeypress="if (event.keyCode< 48 || event.keyCode > 57) event.returnValue = false;" required/>
+					<label>Abscisa inicial</label><br>
+					<input id="abs_fin0" type="number" min=0 onkeypress="if (event.keyCode< 48 || event.keyCode > 57) event.returnValue = false;" required/>
+					<label>Abscisa final</label><br>
+					<input id="instalado0" type="number" min=0 onkeypress="if (event.keyCode< 48 || event.keyCode > 57) event.returnValue = false;" required/>
+					<label>Km Instalados</label><br>
+					<input id="supervisado0" type="number" min=0 onkeypress="if (event.keyCode< 48 || event.keyCode > 57) event.returnValue = false;" required/>
+					<label>Km Supervisados</label><br>
+					<input id="detallado0" type="number" min=0 onkeypress="if (event.keyCode< 48 || event.keyCode > 57) event.returnValue = false;" required/>
+					<label>Km Detallados</label><br>	   				
+				</div>
+			<div id="sidebar"><ul></div><!-- /sidebar -->	
+				<div id="scrollable">
+    <div id="content">                
+	
+	    <div class="api-div" id="api-camera">
+			<button class="button medium blue" onclick="take_pic();">Capturar Fotograf&iacute;a</button>
+			<button class="button medium blue"id="guardar" >Guardar</button>
+			<br><br><a class="button medium blue" id="btn_cancelar" href="Tendido.html">Cancelar</a>
+			<!--a data-role="button" data-icon="arrow-r" data-iconpos="right" class="btn deux" onclick="album_pic();">Seleccionar de Galer&iacute;a</a-->
+			<div class="result-block"> </div>			
+  			<img id="cameraImage" src="" width="320" height="210" align="center"/>
+			
+		</div>
+
+	    <div class="api-div" id="api-device">
+			
+   			<table id="deviceinfo" style="display:none">
+				<tr>
+				 	<th>Device</th>
+				 	<th class="alt">Value</th>
+				</tr>
+				<tr>
+					<td>Name</td>
+					<td class="alt"><strong id="name">&nbsp;</strong></td>
+				</tr>
+				<tr>
+					<td>Platform</td>
+				 	<td class="alt"><strong id="platform">&nbsp;</strong></td>
+				</tr>
+				<tr>
+					<td>PhoneGap Version</td>
+				 	<td class="alt"><strong id="pgversion">&nbsp;</strong></td>
+				</tr>
+				<tr>
+					<td>UUID</td>
+				 	<td class="alt"><strong id="uuid">&nbsp;</strong></td>
+				</tr>
+				<tr>
+					<td>OS Version</td>
+				 	<td class="alt"><strong id="version">&nbsp;</strong></td>
+				</tr>
+				<tr>
+				 	<th>Screen</th>
+				 	<th class="alt">Value</th>
+				</tr>
+				<tr>
+					<td>Width</td>
+					<td class="alt"><strong id="width">&nbsp;</strong></td>
+				</tr>
+				<tr>
+					<td>Height</td>
+					<td class="alt"><strong id="height">&nbsp;</strong></td>
+				</tr>
+				<tr>
+					<td>Available Width</td>
+					<td class="alt"><strong id="availwidth">&nbsp;</strong></td>
+				</tr>
+				<tr>
+					<td>Available Height</td>
+					<td class="alt"><strong id="availheight">&nbsp;</strong></td>
+				</tr>
+				<tr>
+					<td>Color Depth</td>
+					<td class="alt"><strong id="colorDepth">&nbsp;</strong></td>
+				</tr> 					
+			</table>					
+		</div>
+
+	    
+
+	      
+  </div>
+</div>	
+			</section>
+        </div>
+        
+        <script src="js/tendido_avance.js"></script>
+        <script src="phonegap-1.4.1.js"></script>
+        <script src="js/geolocalizar_ini.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/camera.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/device.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/events.js"></script>	
+    </body>
+</html>

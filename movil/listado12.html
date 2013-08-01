@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="cleartype" content="on">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+	<title>Supervisi&oacute;n Red de Fibra &Oacute;ptica</title>
+
+	<!--Include JQM and JQ-->
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" id="linkestilo"/>
+	<link rel="stylesheet" href="css/estilo_boton.css"/>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script>		
+</head>
+     <body onload="init();">
+        <div class="container">
+			<header>
+				<div id = "n_supervisor" align="right"></div>
+				<div id = "n_constructor" align="center"></div>
+				<div id = "n_tramo" align="center"></div>
+			</header>
+			<section id="t_avance">
+			<div class="result-block">	<span id="cur_position"></span>	</div>
+			<br>
+				<div id="avance0"> 
+					<legend> Se realiz&oacute; la emaplmería de:</legend>
+					<label>Del Punto</label>
+					<input id="punto_ini0" type="number" onkeypress="if (event.keyCode< 48 || event.keyCode > 57) event.returnValue = false;" min="0" required />
+					<br>
+					<label>Al Punto</label>
+					<input id="punto_fin0" type="number" onkeypress="if (event.keyCode< 48 || event.keyCode > 57) event.returnValue = false;"  min="0" required/>
+					<br>
+					<label>Se realiza ODF</label>
+					<input type="radio" id="odf0" name="odf0" value="SI"><label for="odf0"> SI</label></input>
+					<input type="radio" id="odf0" name="odf0" value="NO"><label for="odf0"> NO</label></input>
+					<button class="button medium blue_small" id="adicionar">+</button>
+					
+				</div>	
+				
+			</section>
+        </div>
+        <button  class="button medium blue"id="guardar">Guardar</button>
+		<br><br><a class="button medium blue" id="btn_cancelar" href="Tendido.html">Cancelar</a>	
+        <script src="js/empalmeria_avance.js"></script>	
+		<script src="js/geolocalizar_ini.js"></script>
+    </body>
+</html>
